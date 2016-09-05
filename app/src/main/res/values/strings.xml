@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">SensorChecker</string>
+    <string name="url_location">http://localbuoywebserver.staturedev.com/api/MobileApi/GetLocationList</string>
+
+
+
+
+    <string name="preference_component_init">ComponentsInit</string>
+
+
+
+    <!-- Data base strings names: -->
+    <string name="db_name">sensors.db</string>
+    <!-- Location table names -->
+    <string name="db_table_location">location</string>
+
+    <string name="db_table_location_locid">LocationID</string>
+    <string name="db_table_location_parid">ParentId</string>
+    <string name="db_table_location_locname">Name</string>
+    <string name="db_table_location_last">Last</string>
+
+    <!-- Buoys table names -->
+    <string name="db_table_params">Parameters</string>
+
+    <string name="db_table_params_param">Parameter</string>
+    <string name="db_table_params_value">Value</string>
+
+
+</resources>

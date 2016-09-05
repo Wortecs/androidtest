@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="buoys_wave_height">Wave height:</string>
+    <string name="buoys_wave_period">Wave period:</string>
+
+    <string name="tide_latitude">Latitude:</string>
+    <string name="tide_longitude">Longitude:</string>
+
+    <string name="moon_phase">Moon phase:</string>
+
+</resources>
