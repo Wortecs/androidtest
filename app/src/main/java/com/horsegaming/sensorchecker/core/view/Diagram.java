@@ -56,7 +56,7 @@ public class Diagram extends View
 
         for (int i = 0; i < length; i++) {
             int tmp = i + 1;
-            canvas.drawLine(i*stepX, (int)(stepY*values[i]),tmp*stepX,
+            canvas.drawLine(i*stepX, (int)(this.getHeight() - (stepY*values[i])),tmp*stepX,
                     (int)(this.getHeight() - (stepY*values[tmp])), paint);
         }
 
