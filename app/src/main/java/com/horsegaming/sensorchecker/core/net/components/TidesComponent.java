@@ -1,6 +1,8 @@
 package com.horsegaming.sensorchecker.core.net.components;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +17,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.nio.FloatBuffer;
+import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -56,6 +60,12 @@ public class TidesComponent extends Component{
                     textView = (TextView)rowView.findViewById(R.id.tide_longitude);
                     textView.setText(obj.getString("TideLongitude"));
                 }
+                if(!obj.isNull("TideName")){
+                    textView = (TextView)rowView.findViewById(R.id.tide_Name);
+                    textView.setText(obj.getString("TideName"));
+                }
+
+
 
                 jsonStr = new AsyncGetter()
                         .execute("http://localbuoywebserver.staturedev.com/api/MobileApi/GetTidalTidesData?locationId=" + locationID).get();
@@ -64,6 +74,7 @@ public class TidesComponent extends Component{
                 for (int i = 0; i < arr.length(); i++) {
                     tmpValues[i] = arr.getJSONObject(i).getDouble("Value");
                 }
+                Log.d("Array", Arrays.toString(tmpValues));
                 Diagram diagram = (Diagram)rowView.findViewById(R.id.tide_diagram);
                 diagram.set(tmpValues);
 

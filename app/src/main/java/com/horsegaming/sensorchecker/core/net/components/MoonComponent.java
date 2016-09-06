@@ -53,7 +53,7 @@ public class MoonComponent extends Component
                     sb.append(phasesJSON.getString(iter.next()));
                     sb.append(" ");
                 }
-                TextView tw = (TextView)rowView.findViewById(R.id.moon_phases);
+                TextView tw = (TextView)rowView.findViewById(R.id.moon_phase);
                 tw.setText(sb.toString());
 
 

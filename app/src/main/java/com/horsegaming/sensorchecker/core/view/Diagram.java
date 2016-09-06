@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -13,8 +14,8 @@ import android.view.View;
 public class Diagram extends View
 {
 
-    double[] values;
-    final double max = 100;
+    double[] values = new double[]{0};
+    final double max = 50;
 
     Paint paint = new Paint();
     public Diagram(Context context) {
@@ -32,13 +33,20 @@ public class Diagram extends View
     public void set(double[] value){
         this.values = value;
         paint.setColor(Color.BLACK);
+        Log.d("Params", String.format("H:%d, W:%d", this.getHeight(), this.getWidth()));
+        Log.d("Redraw", "OK");
+
         this.invalidate();
     }
 
 
     @Override
     protected void onDraw(Canvas canvas) {
+
         int stepX = this.getWidth()/values.length;
+
+        Log.d("Params", String.format("H:%d, W:%d", this.getHeight(), this.getWidth()));
+
         if(stepX < 1){
             stepX = 1;
         }
@@ -48,7 +56,10 @@ public class Diagram extends View
 
         for (int i = 0; i < length; i++) {
             int tmp = i + 1;
-            canvas.drawLine(i*stepX, (int)(stepY*values[i]),tmp*stepX, (int)(stepY*values[tmp]), paint);
+            canvas.drawLine(i*stepX, (int)(stepY*values[i]),tmp*stepX,
+                    (int)(this.getHeight() - (stepY*values[tmp])), paint);
         }
+
+
     }
 }
